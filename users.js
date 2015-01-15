@@ -29,7 +29,11 @@ function UsersDAO(db) {
         }
 
         // TODO: hw2.3
-        callback(Error("addUser Not Yet Implemented!"), null);
+        users.insert(user, function(err, record) {
+            if (err) callback(err, null);
+
+            callback(null, record);
+        })
     }
 
     this.validateLogin = function(username, password, callback) {
