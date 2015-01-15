@@ -29,10 +29,10 @@ function UsersDAO(db) {
         }
 
         // TODO: hw2.3
-        users.insert(user, function(err, record) {
+        users.insert(user, function(err, user) {
             if (err) callback(err, null);
 
-            callback(null, record);
+            callback(null, user[0]);
         })
     }
 
@@ -65,7 +65,7 @@ function UsersDAO(db) {
         }
 
         // TODO: hw2.3
-        callback(Error("validateLogin Not Yet Implemented!"), null);
+        users.find({}).each(validateUserDoc);
     }
 }
 
