@@ -65,7 +65,7 @@ function UsersDAO(db) {
         }
 
         // TODO: hw2.3
-        users.find({}).each(validateUserDoc);
+        users.findOne({ '_id' : username }, validateUserDoc);
     }
 }
 
